@@ -18,7 +18,7 @@ setup(
     long_description=readme,
     author='Amruth VVKP',
     author_email='amruthvvkp@gmail.com',
-    url='https://github.com/kennethreitz/samplemod',
+    url='https://github.com/amruthvvkp/stock_screener_fastapi',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )
