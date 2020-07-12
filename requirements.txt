@@ -1,0 +1,5 @@
+fastapi~=0.59.0
+uvicorn
+jinja2
+yfinance
+sqlalchemy
