@@ -1,7 +1,7 @@
-Sample Module Repository
+Stock Screener Model
 ========================
 
-This simple project is an example repo for Python projects.
+This is a simple model built using FastAPI to demonstrate the effectiveness of the library.
 
 `Learn more <https://github.com/amruthvvkp/stock_screener_fastapi>`_.
 
