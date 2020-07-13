@@ -32,14 +32,35 @@ def get_db():
 
 
 @app.get("/")
-def home(request: Request):
+def home(request: Request, forward_pe=None, dividend_yield=None, ma50=None, ma200=None, db: Session = Depends(get_db)):
     """
     Dashboard/Home page
     :return: JSON response for homepage
     :rtype: dict
     """
+
+    stocks = db.query(Stock)
+
+    if forward_pe:
+        stocks = stocks.filter(Stock.forward_pe < forward_pe)
+
+    if dividend_yield:
+        stocks = stocks.filter(Stock.dividend_yield > dividend_yield)
+
+    if ma50:
+        stocks = stocks.filter(Stock.price > Stock.ma50)
+
+    if ma200:
+        stocks = stocks.filter(Stock.price > Stock.ma200)
+
+    print(stocks)
     return templates.TemplateResponse("home.html", {
-        "request": request
+        "request": request,
+        "stocks": stocks,
+        "dividend_yield": dividend_yield,
+        "forward_pe": forward_pe,
+        "ma200": ma200,
+        "ma50": ma50
     })
 
 
